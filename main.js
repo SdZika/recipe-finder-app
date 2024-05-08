@@ -82,32 +82,15 @@ searchButton.addEventListener('click', () => {
 
 function searchRecipes(query) {
  
-    /*const recipes = [
-    { name: "Spaghetti Carbonara", ingredients: ["spaghetti", "eggs", "bacon", "cheese"] },
-    { name: "Chicken Alfredo", ingredients: ["chicken", "fettuccine", "cream", "parmesan"] },
-    { name: "Vegetable Stir Fry", ingredients: ["vegetables", "soy sauce", "rice", "garlic"] }
-];
+const searchTerm = query.toLowerCase();
+const foundRecipe = myRecipes.find(recipe => recipe.title.toLowerCase().includes(searchTerm));
 
-// Function to find a recipe based on input string
-function findRecipe(input) {
-    // Convert input to lowercase for case-insensitive search
-    const searchTerm = input.toLowerCase();
-    
-    // Filter the recipes array based on the input string
-    const foundRecipe = recipes.find(recipe => recipe.name.toLowerCase().includes(searchTerm));
-
-    return foundRecipe;
-}
-
-// Example usage
-const userInput = "Carbonara";
-const foundRecipe = findRecipe(userInput);
 
 if (foundRecipe) {
     console.log("Found recipe:", foundRecipe);
 } else {
     console.log("No recipe found for input:", userInput);
-}*/
+}
 
     displayRecipes(myRecipes);
 }
