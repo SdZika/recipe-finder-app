@@ -56,9 +56,12 @@ searchBtn.addEventListener('click', () => {
 function searchRecipes(query) {
 const searchTerm = query.toLowerCase();
 const foundRecipe = dummyRecipes.find(recipe => recipe.title.toLowerCase().includes(searchTerm));
+const foundIngridient = dummyRecipes.find(recipe => recipe.ingredients.join(" ").toLowerCase().includes(searchTerm));
 
 if (foundRecipe) {
    displayRecipes(foundRecipe);
+  } else if (foundIngridient) {
+    displayRecipes(foundIngridient);
   } else {
     console.log("No recipe found for input:", userInput);
   }
