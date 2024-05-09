@@ -5,17 +5,8 @@ const recipeContainer = document.getElementById('recipeContainer');
 const dummyRecipes = [
   { title: "Spaghetti Carbonara", 
   image: "spaghetti.jpg", 
-  ingredients: {
-      spaghetti: "8 ounces (about 225g) of spaghetti",
-      eggs: "4 large eggs",
-      cheese: "1 cup (about 100g) grated Pecorino Romano or Parmesan cheese",
-      pancetta: "6-8 slices of pancetta or bacon, diced",
-      garlic: "2 cloves garlic, minced",
-      pepper: "Freshly ground black pepper",
-      salt: "Salt (optional, as the cheese and pancetta are already salty)",
-      parsley: "Chopped fresh parsley for garnish (optional)"
-    },
-    instructions: [
+  ingredients: ["spaghetti", "eggs", "cheese", "pancetta", "garlic", "pepper", "salt", "parsley"],
+  instructions: [
       "Cook spaghetti until al dente, then drain, reserving 1 cup of pasta water.",
       "Cook diced pancetta/bacon until crispy. Remove and set aside.",
       "Sauté minced garlic in the same skillet until fragrant, then remove from heat.",
@@ -28,15 +19,8 @@ const dummyRecipes = [
   },
   { title: "Chicken Nuggets", 
   image: "nuggets.jpg", 
-  ingredients: {
-      chicken: "1 lb (about 450g) boneless, skinless chicken breasts or thighs, cut into bite-sized pieces",
-      flour: "1 cup (about 120g) all-purpose flour",
-      eggs: "2 large eggs, beaten",
-      breadcrumbs: "1 cup (about 100g) breadcrumbs (seasoned or add your own seasonings)",
-      saltAndPepper: "Salt and pepper to taste",
-      oil: "Oil for frying (vegetable oil works well)",
-    },
-    instructions: [
+  ingredients: ["chicken", "flour", "eggs", "breadcrumbs", "salt", "pepper", "oil"],
+  instructions: [
       "Season chicken pieces with salt and pepper.",
       "Set up a breading station with three shallow bowls: one with flour, one with beaten eggs, and one with breadcrumbs.",
       "Dredge each chicken piece in flour, then dip in beaten eggs, and coat in breadcrumbs.",
@@ -46,19 +30,8 @@ const dummyRecipes = [
   },
   { title: "Pancakes", 
   image: "pancakes.jpg", 
-  ingredients: {
-      flour: "1 cup (about 125g) all-purpose flour",
-      sugar: "2 tablespoons granulated sugar",
-      bakingPowder: "1 teaspoon baking powder",
-      bakingSoda: "1/2 teaspoon baking soda",
-      salt: "1/4 teaspoon salt",
-      buttermilk: "1 cup (about 240ml) buttermilk (or 1 cup milk mixed with 1 tablespoon lemon juice or vinegar, let sit for 5 minutes)",
-      egg: "1 large egg",
-      butter: "2 tablespoons unsalted butter, melted",
-      oil: "Butter or oil for cooking",
-      toppings: "Optional toppings: maple syrup, fresh fruit, whipped cream, chocolate chips, etc."
-    },
-    instructions: [
+  ingredients: ["flour", "sugar", "baking powder", "baking soda", "salt", "buttermilk", "egg", "butter", "oil", "toppings"],
+  instructions: [
       "In a large mixing bowl, whisk together the flour, sugar, baking powder, baking soda, and salt.",
       "In a separate bowl, beat the egg, then stir in the buttermilk and melted butter.",
       "Pour the wet ingredients into the dry ingredients and stir until just combined. It's okay if there are a few lumps in the batter; overmixing can lead to tough pancakes.",
@@ -100,7 +73,8 @@ function displayRecipes(recipe) {
         recipeDiv.innerHTML = `
             <h2>${recipe.title}</h2>
             <img src="images/${recipe.image}" alt="${recipe.title}">
-            <p>${recipe.instructions}</p>
+            <p>Ingredients: ${recipe.ingredients.join(", ")}</p>
+            <p>Instructions: ${recipe.instructions}</p>
         `;
         recipeContainer.appendChild(recipeDiv);
     }
