@@ -1,6 +1,7 @@
 const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
 const recipeContainer = document.getElementById('recipeContainer');
+const savedRecipes = [];
 
 const dummyRecipes = [
   { title: "Spaghetti Carbonara", 
@@ -71,13 +72,31 @@ if (foundRecipe) {
 function displayRecipes(recipe) {
     recipeContainer.innerHTML = '';
     
-        const recipeDiv = document.createElement('div');
-        recipeDiv.classList.add('recipe');
-        recipeDiv.innerHTML = `
-            <h2>${recipe.title}</h2>
-            <img src="images/${recipe.image}" alt="${recipe.title}">
-            <p>Ingredients: ${recipe.ingredients.join(", ")}</p>
-            <p>Instructions: ${recipe.instructions}</p>
-        `;
-        recipeContainer.appendChild(recipeDiv);
-    }
+    const recipeDiv = document.createElement('div');
+    recipeDiv.classList.add('recipe');
+    recipeDiv.innerHTML = `
+        <h2>${recipe.title}</h2>
+        <img src="images/${recipe.image}" alt="${recipe.title}">
+        <p>Ingredients: ${recipe.ingredients.join(", ")}</p>
+        <p>Instructions: ${recipe.instructions}</p>
+    `;
+    recipeContainer.appendChild(recipeDiv);
+
+    const saveButton = document.createElement("button");
+    saveButton.classList.add("save-button");
+    saveButton.textContent = "Save";
+    saveButton.addEventListener("click", function() {
+      saveRecipe(recipe);
+    });
+    recipeDiv.appendChild(saveButton);
+
+    recipeList.appendChild(recipeDiv);
+
+}
+
+function saveRecipe(recipe) {
+  
+  savedRecipes.push("recipe");
+  console.log("Recipe saved:", recipe.title);
+  // You can add additional logic here such as displaying a confirmation message
+}
