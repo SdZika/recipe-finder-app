@@ -68,7 +68,6 @@ if (foundRecipe) {
   }
 }
 
-
 function displayRecipes(recipe) {
     recipeContainer.innerHTML = '';
     
@@ -96,7 +95,7 @@ function displayRecipes(recipe) {
 
 function saveRecipe(recipe) {
   
-  savedRecipes.push("recipe");
+  savedRecipes.push(recipe);
   console.log("Recipe saved:", recipe.title);
   // You can add additional logic here such as displaying a confirmation message
 }
