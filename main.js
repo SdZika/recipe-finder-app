@@ -4,7 +4,8 @@ const recipeContainer = document.getElementById('recipeContainer');
 const savedRecipes = [];
 
 const dummyRecipes = [
-  { title: "Spaghetti Carbonara", 
+  {
+  title: "Spaghetti Carbonara", 
   image: "spaghetti.jpg", 
   ingredients: ["spaghetti", "eggs", "cheese", "pancetta", "garlic", "pepper", "salt", "parsley"],
   instructions: [
@@ -18,7 +19,8 @@ const dummyRecipes = [
       "Serve hot, garnished with parsley if desired."
     ]
   },
-  { title: "Chicken Nuggets", 
+  {
+  title: "Chicken Nuggets", 
   image: "nuggets.jpg", 
   ingredients: ["chicken", "flour", "eggs", "breadcrumbs", "salt", "pepper", "oil"],
   instructions: [
@@ -29,7 +31,8 @@ const dummyRecipes = [
       "Drain excess oil on paper towels and serve hot."
     ]
   },
-  { title: "Pancakes", 
+  {
+  title: "Pancakes", 
   image: "pancakes.jpg", 
   ingredients: ["flour", "sugar", "baking powder", "baking soda", "salt", "buttermilk", "egg", "butter", "oil", "toppings"],
   instructions: [
@@ -64,7 +67,7 @@ if (foundRecipe) {
   } else if (foundIngridient) {
     displayRecipes(foundIngridient);
   } else {
-    console.log("No recipe found for input:", userInput);
+    alert ("No recipe found for input: ", searchInput.value);
   }
 }
 
@@ -94,10 +97,12 @@ function displayRecipes(recipe) {
 function saveRecipe(recipe) {
   
   savedRecipes.push(recipe);
+  console.log(savedRecipes);
+  console.log("-------------------");
   console.log("Recipe saved:", recipe.title);
   // You can add additional logic here such as displaying a confirmation message
 
-  if(savedRecipes) {
+  if(savedRecipes.length > 0) {
     const savedRecipesContainer = document.getElementById("savedRecipes");
 
     savedRecipes.forEach(recipe => {
