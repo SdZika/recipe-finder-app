@@ -88,9 +88,7 @@ function displayRecipes(recipe) {
       saveRecipe(recipe);
     });
     recipeDiv.appendChild(saveButton);
-
-    recipeList.appendChild(recipeDiv);
-
+    
 }
 
 function saveRecipe(recipe) {
@@ -98,4 +96,23 @@ function saveRecipe(recipe) {
   savedRecipes.push(recipe);
   console.log("Recipe saved:", recipe.title);
   // You can add additional logic here such as displaying a confirmation message
+
+  if(savedRecipes) {
+    const savedRecipesContainer = document.getElementById("savedRecipes");
+
+    savedRecipes.forEach(recipe => {
+        const recipeElement = document.createElement("div");
+        recipeElement.classList.add("recipe");
+        recipeElement.innerHTML = `
+            <h2>${recipe.title}</h2>
+            <img src="../images/${recipe.image}" alt="${recipe.title}">
+            <p>Ingredients: ${recipe.ingredients.join(", ")}</p>
+            <p>Instructions: ${recipe.instructions}</p>
+        `;
+        savedRecipesContainer.appendChild(recipeElement);
+    });
+  } else {
+    const savedRecipesContainer = document.getElementById("savedRecipes");
+    savedRecipesContainer.innerHTML = "<p>No saved recipes found.</p>";
+  }
 }
