@@ -31,6 +31,11 @@ nav a:hover {
     color: white;
 }
 
+h1 {
+    background-color: white;
+    padding: 1rem;
+}
+
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -70,3 +75,6 @@ nav a:hover {
     cursor: pointer;
     border-radius: 5px;
   }
+h2 {
+    text-align: center;
+}

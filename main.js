@@ -1,6 +1,6 @@
 const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
-const recipeContainer = document.getElementById('recipeContainer');
+const savedRecipesContainer = document.getElementById("savedRecipes");
 const savedRecipes = [];
 
 const dummyRecipes = [
@@ -73,8 +73,7 @@ if (foundRecipe) {
 
 function displayRecipes(recipe) {
     recipeContainer.innerHTML = '';
-    
-    const recipeDiv = document.createElement('div');
+        const recipeDiv = document.createElement('div');
     recipeDiv.classList.add('recipe');
     recipeDiv.innerHTML = `
         <h2>${recipe.title}</h2>
@@ -91,20 +90,12 @@ function displayRecipes(recipe) {
       saveRecipe(recipe);
     });
     recipeDiv.appendChild(saveButton);
-    
 }
 
 function saveRecipe(recipe) {
-  
+  savedRecipesContainer.innerHTML = '';
   savedRecipes.push(recipe);
-  console.log(savedRecipes);
-  console.log("-------------------");
-  console.log("Recipe saved:", recipe.title);
-  // You can add additional logic here such as displaying a confirmation message
-
   if(savedRecipes.length > 0) {
-    const savedRecipesContainer = document.getElementById("savedRecipes");
-
     savedRecipes.forEach(recipe => {
         const recipeElement = document.createElement("div");
         recipeElement.classList.add("recipe");
