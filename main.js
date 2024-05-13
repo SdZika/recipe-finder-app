@@ -108,8 +108,9 @@ function saveRecipe(recipe) {
         const deleteButton = document.createElement("button");
         deleteButton.classList.add("delete-button");
         deleteButton.textContent = "Delete Recipe";
-        deleteButton.addEventListener("click", function() {
-        deleteRecipe(recipe);
+        deleteButton.addEventListener("click", function(e) {
+        let target = e.target;
+        target.parentElement.remove();
     });
         recipeElement.appendChild(deleteButton);
         savedRecipesContainer.appendChild(recipeElement);
@@ -120,6 +121,8 @@ function saveRecipe(recipe) {
   }
 }
 
-function deleteRecipe(recipe){
+/*function deleteRecipe(recipe){
+  let target = recipe;
+  target.parentElement.remove();
   
-}
+}*/
