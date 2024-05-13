@@ -73,7 +73,7 @@ if (foundRecipe) {
 
 function displayRecipes(recipe) {
     recipeContainer.innerHTML = '';
-        const recipeDiv = document.createElement('div');
+    const recipeDiv = document.createElement('div');
     recipeDiv.classList.add('recipe');
     recipeDiv.innerHTML = `
         <h2>${recipe.title}</h2>
@@ -105,10 +105,21 @@ function saveRecipe(recipe) {
             <p>Ingredients: ${recipe.ingredients.join(", ")}</p>
             <p>Instructions: ${recipe.instructions}</p>
         `;
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-button");
+        deleteButton.textContent = "Delete Recipe";
+        deleteButton.addEventListener("click", function() {
+        deleteRecipe(recipe);
+    });
+        recipeElement.appendChild(deleteButton);
         savedRecipesContainer.appendChild(recipeElement);
     });
   } else {
     const savedRecipesContainer = document.getElementById("savedRecipes");
     savedRecipesContainer.innerHTML = "<p>No saved recipes found.</p>";
   }
+}
+
+function deleteRecipe(recipe){
+  
 }
